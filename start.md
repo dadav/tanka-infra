@@ -39,13 +39,34 @@ paru -S jsonnet-bundler-ng-bin
 
 This fork has registry support, which makes it easy to find new libraries.
 
+Another helpful tool will be [k3d](https://k3d.io/), which we can use to easily create
+kubernetes clusters.
+
+```bash
+# this will install docker and k3d
+paru -S docker rancher-k3d-bin
+# be sure to add your user to the "docker" group
+```
+
 ### Useful commands
 
 Here are some commands to help you get started:
 
 ```bash
+# Create a cluster
+k3d cluster create foo --api-port 9999
+
+# Delete a cluster
+k3d cluster delete foo
+
 # Create a tanka project
 tk init
+
+# Add an environment
+tk env add environments/foo --server=https://0.0.0.0:9999
+# or
+# Set the api-port to 9999 on the default env
+tk env set environments/default --server=https://0.0.0.0:9999
 
 # Print yaml manifests to stdout
 # Be aware: If you want to pipe this to kubectl,
