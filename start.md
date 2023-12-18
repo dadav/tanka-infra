@@ -17,9 +17,50 @@ First, [install tanka](https://tanka.dev/install#tanka), for example like this:
 paru -S tanka
 ```
 
-You also need [jsonnet-bundler](https://tanka.dev/install#jsonnet-bundler). Optionally, you
-can install [my fork](https://github.com/dadav/jsonnet-bundler-ng):
+tanka is the foundation of our configuration. It translates our jsonnet configurations to
+yaml manifests. There a several libraries out there that we can use.
+
+You also need [jsonnet-bundler](https://tanka.dev/install#jsonnet-bundler):
+
+```bash
+paru -S jsonnet-bundler-bin
+```
+
+It's a package manager for jsonnet. tanka uses it to initiate new projects.
+
+Optionally, you can install [my fork](https://github.com/dadav/jsonnet-bundler-ng) instead:
 
 ```bash
 paru -S jsonnet-bundler-ng-bin
 ```
+
+This fork has registry support, which makes it easy to find new libraries.
+
+### Useful commands
+
+Here are some commands to help you get started:
+
+```bash
+# Create a tanka project
+tk init
+
+# Show manifests
+tk show environments/default
+
+# Run diff
+tk diff environments/default
+
+# Apply
+tk apply environments/default
+
+# Add helm charts
+tk tool charts init
+tk tool charts add-repo $reponame $url
+tk tool charts add $reponame/$chart@$version
+```
+
+As always, be sure to also read the manual.
+
+## IDE
+
+If you use neovim, I recommend to use [lazyvim](https://lazyvim.org/) with [this config](https://github.com/dadav/dotfiles/blob/master/.config/nvim/lua/plugins/languages/jsonnet.lua).
