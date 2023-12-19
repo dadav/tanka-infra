@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ $# -eq 1 ]]; then
+  name=$1
+  k3d cluster delete "$name"
+elif [[ $# -eq 2 ]]; then
+  name=$1
+  port=$2
+  k3d cluster create "$name" --api-port "$port"
+else
+  echo "Give me a name and optionally a port"
+  exit 1
+fi
+exit 0

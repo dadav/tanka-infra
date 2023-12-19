@@ -48,6 +48,14 @@ paru -S docker rancher-k3d-bin
 # be sure to add your user to the "docker" group
 ```
 
+### Bonus
+
+I definitely recommend to use the tool `k9s` to access your clusters resources.
+
+```bash
+paru -S k9s
+```
+
 ### Useful commands
 
 Here are some commands to help you get started:
@@ -104,3 +112,27 @@ complete -o nospace -C /usr/bin/tk tk
 ## IDE
 
 If you use neovim, I recommend to use [lazyvim](https://lazyvim.org/) with [this config](https://github.com/dadav/dotfiles/blob/master/.config/nvim/lua/plugins/languages/jsonnet.lua).
+
+## Helpers
+
+Because we need a fast way of creating and deleting clusters, it would be cool
+to have some kind of helper script.
+
+It should work like this:
+
+```bash
+# To create a cluster named foo with port 9999
+./c foo 9999
+
+# To delete the cluster again
+./c foo
+```
+
+You can try it for yourself first and then see my solution:
+
+<details>
+<summary><h1>My solution</h1></summary>
+
+[See here](./helpers/c)
+
+</details>
