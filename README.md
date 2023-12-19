@@ -8,6 +8,17 @@ I want to create examples for the following scenarios (basic to advanced):
 - Two cluster, two stages, no CI
 - Two cluster, two stages, CI
 
+We want to be able to easily add new apps, stages and clusters.
+The basic set of apps we want on all clusters are:
+
+- Kubernetes Dashboard: To get an overview of our clusters
+- ArgoCD: To deploy our stuff automatically from our git repo
+- Kyverno: To enforce some policies
+- Starboard: To scan and audit our cluster for security issues.
+
+For every app we'll need to check the installation method and abstract these
+into some handy jsonnet library.
+
 Every scenario will have a branch.
 Every branch is based on the previous scenarios branch.
 
