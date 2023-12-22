@@ -14,7 +14,8 @@ The basic set of apps we want on all clusters are:
 - Kubernetes Dashboard: To get an overview of our clusters
 - ArgoCD: To deploy our stuff automatically from our git repo
 - Kyverno: To enforce some policies
-- Starboard: To scan and audit our cluster for security issues.
+- Trivy: To scan and audit our cluster for security issues.
+- Prometheus + Grafana: To get some graphs
 
 For every app we'll need to check the installation method and abstract these
 into some handy jsonnet library.
